@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-amoled: #080a0d;
+    --surface-primary: #11151b;
+    --surface-elevated: #171b22;
+    --accent-gold: #e6bd58;
+    --accent-blue: #76a9fa;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --status-positive: #4ade80;
+    --status-error: #f87171;
+    --status-caution: #fbbf24;
+  }
+
+  body {
+    background-color: #080a0d;
+    color: #f4f4f5;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
+    overflow-x: hidden;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #e6bd58;
+    outline-offset: 2px;
+  }
+}
+
+/* Primary Solid Charcoal Surface (Tables, Charts, Forms, Diagnostics) */
+.surface-panel {
+  background-color: #11151b;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.surface-elevated {
+  background-color: #171b22;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+}
+
+/* Selective Glassmorphism (Hero, Highlighted Finding, Floating Bar, Modals) */
+.glass-subtle {
+  background: rgba(17, 21, 27, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-standard {
+  background: #11151b;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.45);
+}
+
+.glass-elevated {
+  background: linear-gradient(180deg, rgba(23, 27, 34, 0.9) 0%, rgba(17, 21, 27, 0.95) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(230, 189, 88, 0.22);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-interactive {
+  background: #11151b;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.glass-interactive:hover {
+  background: #171b22;
+  border-color: rgba(230, 189, 88, 0.35);
+}
+
+.glass-modal {
+  background: rgba(23, 27, 34, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+}
+
+/* Primary Solid Champagne Gold Action Button */
+.btn-gold-primary {
+  background-color: #e6bd58;
+  color: #080a0d;
+  font-weight: 700;
+  transition: filter 150ms ease, transform 120ms ease;
+}
+
+.btn-gold-primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.btn-gold-primary:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.btn-gold-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Semantic Status Tints */
+.status-positive-box {
+  background-color: rgba(74, 222, 128, 0.09);
+  border: 1px solid rgba(74, 222, 128, 0.28);
+  color: #4ade80;
+}
+
+.status-error-box {
+  background-color: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.32);
+  color: #f87171;
+}
+
+.status-caution-box {
+  background-color: rgba(251, 191, 36, 0.09);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  color: #fbbf24;
+}
+
+/* Tabular Numbers */
+.num-font {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272d38;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(230, 189, 88, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
